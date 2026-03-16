@@ -2,7 +2,7 @@
 </script>
 
 <div style="display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: 'Segoe UI', sans-serif; background: #f8f9fc;">
-  <div style="text-align: center; padding: 48px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); max-width: 500px;">
+  <div style="text-align: center; padding: 48px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); max-width: 540px;">
     <div style="width: 64px; height: 64px; background: #4a1d8e; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px;">
       <span style="font-size: 28px; color: white;">&#9993;</span>
     </div>
@@ -11,11 +11,15 @@
     <div style="background: #f5f0fc; padding: 16px; border-radius: 8px; text-align: left;">
       <p style="margin: 0 0 8px; font-size: 13px; color: #4a1d8e; font-weight: 600;">Endpoint</p>
       <code style="font-size: 13px; color: #35146a;">POST /api/notify</code>
+
+      <p style="margin: 16px 0 8px; font-size: 13px; color: #4a1d8e; font-weight: 600;">Header</p>
+      <code style="font-size: 12px; color: #35146a;">Authorization: Bearer &lt;seu-token&gt;</code>
+
       <p style="margin: 16px 0 8px; font-size: 13px; color: #4a1d8e; font-weight: 600;">Body (JSON)</p>
       <pre style="font-size: 12px; color: #35146a; margin: 0; white-space: pre-wrap;">&#123;
-  "api_key": "sua-chave",
   "subject": "Assunto (opcional)",
-  "message": "Sua mensagem aqui"
+  "message": "Sua mensagem aqui",
+  "to": "email@destino.com (opcional)"
 &#125;</pre>
     </div>
   </div>

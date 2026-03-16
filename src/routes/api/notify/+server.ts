@@ -5,15 +5,17 @@ import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async ({ request }) => {
   try {
-    const body = await request.json();
-    const { api_key, subject, message, to } = body;
+    // Token via header Authorization: Bearer <token>
+    const authHeader = request.headers.get('authorization') || '';
+    const token = authHeader.replace(/^Bearer\s+/i, '').trim();
 
-    // Validate API key
-    if (!api_key || api_key !== env.API_KEY) {
-      return json({ success: false, error: 'API key inválida' }, { status: 401 });
+    if (!token || token !== env.API_KEY) {
+      return json({ success: false, error: 'Token inválido ou ausente. Use header: Authorization: Bearer <token>' }, { status: 401 });
     }
 
-    // Validate message
+    const body = await request.json();
+    const { subject, message, to } = body;
+
     if (!message) {
       return json({ success: false, error: 'Campo "message" é obrigatório' }, { status: 400 });
     }
